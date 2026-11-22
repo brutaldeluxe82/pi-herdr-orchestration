@@ -69,8 +69,15 @@ Matt's skills remain the source of workflow truth. For example, `implement-spec`
 
 ## Update and remove
 
+Update this package through Pi, then run `/reload` in open sessions or start a new one:
+
 ```bash
-pi update --extensions
+pi update git:github.com/brutaldeluxe82/pi-herdr-orchestration
+```
+
+To uninstall:
+
+```bash
 pi remove git:github.com/brutaldeluxe82/pi-herdr-orchestration
 ```
 

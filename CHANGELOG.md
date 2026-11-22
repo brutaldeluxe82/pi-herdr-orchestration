@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.1] - 2026-11-22
+
+### Changed
+
+- Give fresh subagents a concise summary of the task, its scope, and what makes it difficult when relevant, so virtual-model classifiers can route the first prompt before the subagent opens the linked files.
+
 ## 0.1.0 - 2026-11-22
 
 ### Added

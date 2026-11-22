@@ -53,7 +53,15 @@ Check `hc templates` before launch. Use fresh named interactive background termi
 
 If no fitting template exists, launch an interactive agent directly and include the equivalent role contract in its first task.
 
-Start each subagent with a fresh context window. Give its first task only necessary pointers, its assigned role, execution roots, writable artifacts, acceptance criteria, authorized side effects, and completion contract. Avoid copying large specs or diffs when durable pointers suffice.
+Start each subagent with a fresh context window.
+
+### Write a self-contained first task
+
+Lead the first task message with one or two sentences that say what the subagent must accomplish and what is in scope. When the task is nontrivial, name the specific constraint, uncertainty, or risk that makes it so (for example, cross-repository changes, compatibility during rollout, or an unclear failure cause). For straightforward work, keep it brief; do not invent complexity. Leave the model and thinking level unpinned unless the caller or workflow explicitly requires otherwise. A classifier-backed model can route that first message before the subagent opens any linked files, so put this summary in the message itself, not just in a template, ticket, or attachment.
+
+For example, instead of “Implement ticket 42,” write: “Implement the retry change across the worker and queue adapter. Old and new workers must coexist during rollout without duplicating writes. See `docs/ticket-42.md` for the full requirements.”
+
+Include the assigned role, execution roots, necessary pointers, writable artifacts, acceptance criteria, authorized side effects, and completion contract. Keep the referenced artifacts authoritative; do not paste large specs or diffs when durable pointers suffice.
 
 Every launch must include a way to report its result or blocker to the parent with `hc send`. Confirm delivery of the first task and inspect uncertain launches rather than duplicating them.
 
